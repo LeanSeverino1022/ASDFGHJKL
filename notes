@@ -1,0 +1,32 @@
+Shortcut for ready event method on document object
+
+$(function () {
+    //script here. Any statements inside the method automatically run when the page has loaded.
+});
+
+
+jQuery provides a method .on() to respond to any event on the selected elements. 
+This is called an event binding. Although .on() isn't the only method provided for event binding, 
+it is a best practice to use this for jQuery 1.7+.
+
+src: https://learn.jquery.com/events/handling-events/
+
+You can use .on() to bind a function to multiple events:
+
+$('#element').on('keyup keypress blur change', function(e) {
+    // e.type is the type of event fired
+});
+
+PDO::ERRMODE_EXCEPTION throws PDOException. In my opinion this is the mode you should use. It acts very much like or die(mysql_error()); when it isn't caught, but unlike or die() the PDOException can be caught and handled gracefully if you choose to do so. src: http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers
+
+pdo reference: 
+
+PDO Documentation - php.net
+In-depth PDO tutorial at phpdelusions.net
+PDO tutorial at phptherightway.com
+http://wiki.hashphp.org
+
+cheats:
+
+Inline-editing: http://w2ui.com/web/demos/#!grid/grid-21
+show an image inside a cell: http://jsfiddle.net/y81cyj54/10/
