@@ -10,6 +10,7 @@
 
     <script src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="w2ui/w2ui-1.5.rc1.min.js"></script>
+    <script type="text/javascript" src="includes/functions.js"></script>
     <script type="text/javascript" src="<?php echo $scriptSrc ?>"></script>
  </head>   
 <body>

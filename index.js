@@ -1,5 +1,54 @@
-$(function () {
-    $('#grid').w2grid({ 
+   
+//    layout2= {
+//         name: 'layout',
+//         padding: 10,
+//         panels: [
+//             { type: 'left', size: 200, resizable: true, },
+//             { type: 'main', minSize: 550, overflow: 'hidden' }
+//         ]
+//     }
+
+
+var config = {
+    layout: {
+        name: 'layout',
+        padding: 10,
+        panels: [
+            { type: 'left', size: 200, resizable: true, },
+            { type: 'main', minSize: 550, overflow: 'hidden' }
+        ]
+    },
+
+    sidebar: {
+        name: 'sidebar',
+        nodes: [
+            { id: 'general', text: 'General', group: true, expanded: true, nodes: [
+                { id: 'grid1', text: 'Grid 1', img: 'icon-page', selected: true },
+                { id: 'grid2', text: 'Grid 2', img: 'icon-page' },
+                { id: 'html', text: 'Some HTML', img: 'icon-page' }
+            ]}           
+        ],
+        onClick: function (event) {
+            switch (event.target) {
+                case 'grid1':
+                    w2ui.layout.content('main', w2ui.grid1);
+                    break;
+                case 'grid2':
+                    w2ui.layout.content('main', w2ui.grid2);
+                    break;
+                case 'html':
+                    w2ui.layout.content('main', '<div style="padding: 10px">Some HTML</div>');
+                    $(w2ui.layout.el('main'))
+                        .removeClass('w2ui-grid')
+                        .css({ 
+                            'border-left': '1px solid silver'
+                        });
+                    break;
+            }
+       }
+
+    },
+    grid1: { 
         name: 'grid',
         url: 'connect.php',
         method: 'GET', 
@@ -9,7 +58,7 @@ $(function () {
             toolbarAdd: true,
             toolbarDelete: true,
             toolbarSave: true,
-            toolbarEdit: true
+            toolbarEdit: true,
         },
         searches: [                
             { field: 'lname', caption: 'Last Name', type: 'text' },
@@ -56,6 +105,26 @@ $(function () {
         onSave: function (event) {
             w2alert('save');
         },
+        onDblClick: updateRecord /*function found in other file*/
+    }
+};
 
-    });    
-});
+
+$(function () {
+    // console.log( $().w2sidebar(config.sidebar));
+    // initialization
+   
+   $("#w2ui-cont").w2layout(config.layout);
+
+    w2ui.layout.content('left', $().w2sidebar(config.sidebar));
+    w2ui.layout.content('main', $().w2grid(config.grid1));
+    // in memory initialization
+    $().w2grid(config.grid2);
+        
+}); 
+
+ 
+
+
+
+

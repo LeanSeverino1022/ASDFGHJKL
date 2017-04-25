@@ -84,6 +84,19 @@ nav a.selected, nav a:hover {
   color: #4eb1ba;
 }
 
+/*stickyfooter(xfr later on)*/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  border: green 4px solid;
+}
+
+#content {
+  flex: 1;
+}
+
+
 @media screen and (min-width: 660px) {
 
   nav {
